@@ -47,8 +47,8 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   ```
   ...
 
-  # aktywacja 
-  $ source .venv/Source/activate
+  # aktywacja (Debian based Linux systems)
+  $ source .venv/bin/activate
   ```
 
 - Integracja z TravisCI:

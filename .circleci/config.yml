@@ -1,0 +1,26 @@
+  GNU nano 7.2                                                                                                                                              config.yml                                                                                                                                                  M     
+version: 2.1
+
+
+jobs:
+
+  build-and-test:
+
+    machine:
+
+      image: ubuntu-2004:current
+
+    steps:
+
+      - checkout
+      - run: make deps
+      - run: make lint
+      - run: make test
+
+workflows:
+
+  basic:
+
+    jobs:
+
+      - build-and-test

@@ -39,7 +39,9 @@ docker_run: docker_build
 # -----------------------
 
 docker_login:
-	@echo "$(DOCKER_PASSWORD)" | docker login -u "$(USERNAME)" --password-stdin
+	@test -n "$$DOCKER_USERNAME" || (echo "DOCKER_USERNAME is not set" && exit 1)
+	@test -n "$$DOCKER_PASSWORD" || (echo "DOCKER_PASSWORD is not set" && exit 1)
+	@echo "$$DOCKER_PASSWORD" | docker login -u "$$DOCKER_USERNAME" --password-stdin
 
 docker_logout:
 	docker logout
